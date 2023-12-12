@@ -1,0 +1,22 @@
+{
+    "name": "test",
+    "version": "1.0.0",
+    "type": "commonjs",
+    "description": "",
+    "author": "Avezov Say",
+    "scripts": {
+        "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+        "dev:server": "cd server && npm run dev",
+        "dev:client": "cd client && npm run dev"
+    },
+    "keywords": [],
+    "license": "ISC",
+    "private": true,
+    "workspaces": [
+        "server",
+        "client"
+    ],
+    "devDependencies": {
+        "eslint": "^8.21.0"
+    }
+}
