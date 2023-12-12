@@ -3,16 +3,13 @@ const http = require('http');
 const cors = require('cors');
 
 const { loggerMiddleware } = require('./middleware/loggerMiddleware.cjs');
-
 const M1router = require('./routes/m1.cjs');
-
 const { errorMiddleware } = require('./middleware/errorMiddleware.cjs');
 
 const port = process.env.PORT || 3000;
 
 const createWorker = async () => {
     const app = express();
-
     app.use(cors({
         origin: '*',
         methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
@@ -21,9 +18,7 @@ const createWorker = async () => {
     app.use(express.json());
 
     app.use(loggerMiddleware);
-
     app.use(M1router);
-
     app.use(errorMiddleware);
 
     http.createServer(app).listen(port, () => {

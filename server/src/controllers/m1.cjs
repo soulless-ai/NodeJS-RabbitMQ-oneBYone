@@ -3,7 +3,9 @@ const M1Service = require('../services/m1.cjs');
 const M1_SERVICE = new M1Service();
 
 class M1Controller {
-    constructor() {}
+    constructor() {
+        
+    }
 
     async handleHttpRequest(req, res) {
         try {

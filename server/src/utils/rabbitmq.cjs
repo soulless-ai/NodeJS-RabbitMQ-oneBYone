@@ -22,14 +22,10 @@ const closeConnection = (connection) => {
 
 const enqueueTaskToRabbitMQ = async (task) => {
     const { connection, channel } = await createChannel();
-
     try {
         await createQueue(channel, rabbitMqConfig.queueName);
-
         const taskString = JSON.stringify(task);
-
         channel.sendToQueue(rabbitMqConfig.queueName, Buffer.from(taskString), { persistent: true });
-
         return await M2_CONTROLLER.handleTaskFromQueue({ taskType: 'M2', number: task.number });
     } finally {
         closeConnection(connection);

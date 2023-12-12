@@ -6,5 +6,4 @@ const simulateProcessingDelay = (duration) => {
     });
 };
 
-
 module.exports = { simulateProcessingDelay };
